@@ -33,7 +33,7 @@ app.post('/', function (req, res) {
 
   const jsonData = JSON.stringify(data);
 
-  const url = 'https://us21.api.mailchimp.com/3.0/lists/f49c7c9c22';
+  const url = process.env.MY_URL;
   const options = {
     method: 'POST',
     auth: process.env.API_KEY,
@@ -47,7 +47,7 @@ app.post('/', function (req, res) {
     }
 
     response.on('data', function (data) {
-      // console.log(JSON.parse(data));
+      console.log(JSON.parse(data));
     });
   });
 
